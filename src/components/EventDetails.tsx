@@ -215,8 +215,8 @@ const EventDetails = () => {
                   <Image
                     src="/venue.png"
                     alt="RARIN Bangkok Riverside Venue"
-                    layout="fill"
-                    objectFit="cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
                 <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
