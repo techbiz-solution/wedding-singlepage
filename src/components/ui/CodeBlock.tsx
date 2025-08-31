@@ -103,7 +103,7 @@ export const CodeBlock = ({
     <div className="relative w-full rounded-lg bg-slate-900 p-2 sm:p-4 font-mono text-xs sm:text-sm overflow-hidden">
       <div className="flex flex-col gap-2">
         {tabsExist && (
-          <div className="flex  overflow-x-auto">
+          <div className="flex flex-wrap gap-2">
             {tabs.map((tab, index) => (
               <button
                 key={index}
@@ -142,7 +142,7 @@ export const CodeBlock = ({
         )}
       </div>
       
-      <div className="overflow-x-auto">
+      <div className="w-full">
         <SyntaxHighlighter
           language={activeLanguage}
           style={atomDark}
