@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { Spotlight } from '@/components/ui/Spotlight';
 import { Typewriter } from '@/components/ui/Typewriter';
+import Image from 'next/image';
 
 const Hero = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -61,6 +62,17 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+        {/* Logo */}
+        <div className="mb-8">
+          <Image
+            src="/pp_logo_white.png"
+            alt="Wedding Logo"
+            width={200}
+            height={200}
+            className="w-40 h-40 md:w-44 md:h-44 lg:w-48 lg:h-48 mx-auto transition-all duration-300"
+          />
+        </div>
+        
         {/* Couple Names */}
         <h1 className="couple-names text-6xl md:text-8xl lg:text-9xl text-white text-center leading-none mb-6 text-shadow">
           <Typewriter 
@@ -103,14 +115,19 @@ const Hero = () => {
         </div>
 
         {/* Color Theme Display */}
-        <div className="flex justify-center items-center space-x-3 mb-8">
-          <div className="w-4 h-4 rounded-full bg-[#FFD93D] shadow-lg"></div>
-          <div className="w-4 h-4 rounded-full bg-[#FF9EBB] shadow-lg"></div>
-          <div className="w-4 h-4 rounded-full bg-[#8BC34A] shadow-lg"></div>
-          <div className="w-4 h-4 rounded-full bg-[#FF7B54] shadow-lg"></div>
-          <div className="w-4 h-4 rounded-full bg-[#4CBFAD] shadow-lg"></div>
-          <div className="w-4 h-4 rounded-full bg-[#C29DF2] shadow-lg"></div>
-          <div className="w-4 h-4 rounded-full bg-[#E63946] shadow-lg"></div>
+        <div className="text-center mb-8">
+          <p className="font-sans text-lg md:text-xl text-white/90 mb-4 text-shadow">
+            Dress code
+          </p>
+          <div className="flex justify-center items-center space-x-3">
+            <div className="w-4 h-4 rounded-full bg-[#FFD93D] shadow-lg"></div>
+            <div className="w-4 h-4 rounded-full bg-[#FF9EBB] shadow-lg"></div>
+            <div className="w-4 h-4 rounded-full bg-[#8BC34A] shadow-lg"></div>
+            <div className="w-4 h-4 rounded-full bg-[#FF7B54] shadow-lg"></div>
+            <div className="w-4 h-4 rounded-full bg-[#4CBFAD] shadow-lg"></div>
+            <div className="w-4 h-4 rounded-full bg-[#C29DF2] shadow-lg"></div>
+            <div className="w-4 h-4 rounded-full bg-[#E63946] shadow-lg"></div>
+          </div>
         </div>
 
         {/* CTA Button */}

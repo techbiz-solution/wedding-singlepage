@@ -43,13 +43,15 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <Image
-              src={scrolled ? "/pp_logo.png" : "/pp_logo_white.png"}
-              alt="Wedding Logo"
-              width={48}
-              height={48}
-              className="w-12 h-12 transition-all duration-300"
-            />
+            {scrolled && (
+              <Image
+                src="/pp_logo.png"
+                alt="Wedding Logo"
+                width={40}
+                height={40}
+                className="w-10 h-10 transition-all duration-300"
+              />
+            )}
             <span className={`font-serif text-2xl transition-colors duration-300 ${
               scrolled ? 'text-[#2C2C2C]' : 'text-white'
             }`}>
@@ -118,11 +120,13 @@ const Navigation = () => {
                   <Image
                     src="/pp_logo.png"
                     alt="Wedding Logo"
-                    width={40}
-                    height={40}
-                    className="w-10 h-10"
+                    width={32}
+                    height={32}
+                    className="w-8 h-8"
                   />
-                  <span className="font-serif text-xl text-[#2C2C2C]">P & P</span>
+                  <span className="font-serif text-xl text-gray-900">
+                    P & P
+                  </span>
                 </div>
                 <button
                   onClick={() => setIsOpen(false)}
