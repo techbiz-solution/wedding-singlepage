@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Users, User } from 'lucide-react';
+import { Heart, Users } from 'lucide-react';
 
 const RSVP = () => {
   const [formData, setFormData] = useState({
@@ -158,8 +158,8 @@ const RSVP = () => {
                   className="w-full px-4 py-3 border border-[#D1D5DB] rounded-lg focus:ring-2 focus:ring-[#FF7B54] focus:border-transparent transition-all duration-200 font-sans text-[#2C2C2C]"
                 >
                   <option value="">Please select your relationship</option>
-                  <option value="bride">Bride's Family & Friends</option>
-                  <option value="groom">Groom's Family & Friends</option>
+                  <option value="bride">Bride&apos;s Family & Friends</option>
+                  <option value="groom">Groom&apos;s Family & Friends</option>
                   <option value="both">Mutual Friend/Family</option>
                   <option value="friend">Friend of Both</option>
                 </select>

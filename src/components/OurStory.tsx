@@ -156,7 +156,7 @@ love_story()`;
               What started as a simple gesture of offering a napkin turned into hours of conversation about dreams, aspirations, and the little things that make life beautiful. That day, we discovered that sometimes the best love stories begin with the most ordinary moments.
             </p>
             <p className="font-sans text-lg text-[#4B5563] leading-relaxed">
-              Three years later, on a mountaintop at sunset, Pete got down on one knee and asked the question that would change our lives forever. Now, we're excited to celebrate our love with all of you on our special day.
+              Three years later, on a mountaintop at sunset, Pete got down on one knee and asked the question that would change our lives forever. Now, we&apos;re excited to celebrate our love with all of you on our special day.
             </p>
           </div>
         </motion.div>

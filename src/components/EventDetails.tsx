@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Clock, Camera, Utensils, Music, Heart, MapPin } from 'lucide-react';
+import { Calendar, MapPin, Clock as ClockIcon, Heart, Users, Phone, Mail, Globe, Camera, Utensils, Music } from 'lucide-react';
 
 const EventDetails = () => {
   const events = [

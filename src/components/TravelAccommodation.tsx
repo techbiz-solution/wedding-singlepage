@@ -73,7 +73,7 @@ const TravelAccommodation = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#FF7B54] to-[#E63946] mx-auto rounded-full mb-8"></div>
           <p className="font-sans text-xl text-[#4B5563] max-w-3xl mx-auto">
-            We've arranged special rates and transportation options to make your stay comfortable and convenient
+            We&apos;ve arranged special rates and transportation options to make your stay comfortable and convenient
           </p>
         </motion.div>
 
@@ -178,7 +178,7 @@ const TravelAccommodation = () => {
           <div className="bg-white p-8 rounded-lg accent-shadow border border-[#E5E7EB] max-w-4xl mx-auto">
             <h4 className="font-serif text-2xl md:text-3xl text-[#2C2C2C] mb-4">Need Help Planning?</h4>
             <p className="text-[#4B5563] mb-6 leading-relaxed">
-              Our wedding coordinator is available to help with travel arrangements and answer any questions about accommodations or transportation. Don't hesitate to reach out!
+              Our wedding coordinator is available to help with travel arrangements and answer any questions about accommodations or transportation. Don&apos;t hesitate to reach out!
             </p>
             <div className="bg-gradient-to-r from-[#FFD93D] to-[#FF9EBB] p-4 rounded-lg border border-[#FFD93D]">
               <p className="text-[#2C2C2C] font-medium">📧 Email: travel@wedding.com | 📱 Phone: (555) 123-4567</p>

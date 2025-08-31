@@ -181,9 +181,9 @@ const Navigation = () => {
                   <h3 className="font-serif text-lg font-semibold text-gray-900 mb-3">
                     Questions?
                   </h3>
-                  <p className="text-gray-600 text-sm mb-3">
-                    Need help or have special requests? We're here to help!
-                  </p>
+                                            <p className="text-gray-600 text-sm mb-3">
+                            Need help or have special requests? We&apos;re here to help!
+                          </p>
                   <div className="space-y-2 text-sm">
                     <div className="flex items-center space-x-2">
                       <Mail className="w-4 h-4 text-[#FF9EBB]" />

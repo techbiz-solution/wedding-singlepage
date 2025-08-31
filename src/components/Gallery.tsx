@@ -101,7 +101,10 @@ const Gallery = () => {
           <div className="bg-gradient-to-r from-[#4CBFAD] to-[#8BC34A] p-8 rounded-lg border border-[#4CBFAD] max-w-2xl mx-auto">
             <h3 className="font-serif text-2xl md:text-3xl text-white mb-4">More Photos Coming Soon!</h3>
             <p className="text-white/90 leading-relaxed">
-              We'll be adding more photos from our engagement, wedding planning, and special moments leading up to our big day. Check back often for updates!
+              We&apos;ll be adding more photos from our engagement, wedding planning, and special moments leading up to our big day. Check back often for updates!
+            </p>
+            <p className="font-sans text-[#4B5563] text-sm">
+              Don&apos;t forget to use our wedding hashtag when sharing photos!
             </p>
           </div>
         </motion.div>

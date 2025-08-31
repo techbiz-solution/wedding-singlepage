@@ -18,7 +18,7 @@ const Footer = () => {
             >
               <h3 className="font-serif text-3xl md:text-4xl text-[#FF9EBB] mb-6">Pumpuiz & Pete</h3>
               <p className="font-sans text-[#D1D5DB] leading-relaxed mb-6">
-                Two hearts, one love story. We're excited to share our special day with you and create memories that will last a lifetime.
+                Two hearts, one love story. We&apos;re excited to share our special day with you and create memories that will last a lifetime.
                 Join us on <span className="font-serif text-[#FF9EBB]">December 05, 2025</span> as we begin this beautiful journey together.
               </p>
               <div className="flex items-center justify-center md:justify-start">
@@ -94,7 +94,7 @@ const Footer = () => {
           className="py-8 text-center"
         >
           <div className="flex flex-col md:flex-row items-center justify-between">
-            <p className="font-sans text-[#D1D5DB] text-sm mb-4 md:mb-0">© 2025 Pumpuiz & Pete's Wedding. All rights reserved.</p>
+            <p className="font-sans text-[#D1D5DB] text-sm mb-4 md:mb-0">© 2025 Pumpuiz & Pete&apos;s Wedding. All rights reserved.</p>
             <div className="flex items-center space-x-6 text-sm">
               <a href="#" className="text-[#D1D5DB] hover:text-[#FF9EBB] transition-colors font-serif">Privacy Policy</a>
               <a href="#" className="text-[#D1D5DB] hover:text-[#FF9EBB] transition-colors font-serif">Terms of Service</a>
