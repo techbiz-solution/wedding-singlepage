@@ -4,8 +4,122 @@ import { motion } from 'framer-motion';
 import { Heart, Camera, MapPin } from 'lucide-react';
 import { CodeBlock } from '@/components/ui/CodeBlock';
 import Image from 'next/image';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
+
+type Polaroid = { src: string; alt: string; caption: string };
+
+const ShufflingPolaroids = ({
+  images,
+  intervalMs = 2600,
+}: {
+  images: Polaroid[];
+  intervalMs?: number;
+}) => {
+  const [order, setOrder] = useState<number[]>(
+    images.map((_, i) => i) // [0,1,2,...]
+  );
+  const [paused, setPaused] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  // rotate order: [0,1,2] -> [1,2,0]
+  const shuffle = () =>
+    setOrder((prev) => {
+      const [first, ...rest] = prev;
+      return [...rest, first];
+    });
+
+  useEffect(() => {
+    if (paused) return;
+    timerRef.current = setInterval(shuffle, intervalMs);
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [paused, intervalMs]);
+
+  const positions = useMemo(
+    () => [
+      // top card
+      { x: 0, y: 0, rotate: -4, z: 30, scale: 1 },
+      // middle
+      { x: 18, y: 18, rotate: 6, z: 20, scale: 0.96 },
+      // bottom
+      { x: -18, y: 26, rotate: -2, z: 10, scale: 0.92 },
+    ],
+    []
+  );
+
+  return (
+    <div
+      className="relative h-80 lg:h-96 w-full flex items-center justify-center"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onClick={shuffle} // tap to shuffle on mobile
+    >
+      <AnimatePresence initial={false}>
+        {order.slice(0, 3).map((imgIndex, stackIndex) => {
+          const p = positions[stackIndex];
+          const img = images[imgIndex];
+          return (
+            <motion.div
+              key={imgIndex}
+              className="absolute"
+              style={{ zIndex: p.z }}
+              initial={{ opacity: 0, scale: 0.9, rotate: p.rotate - 6 }}
+              animate={{
+                opacity: 1,
+                x: p.x,
+                y: p.y,
+                rotate: p.rotate,
+                scale: p.scale,
+                transition: { type: 'spring', stiffness: 300, damping: 26 },
+              }}
+              exit={{ opacity: 0, scale: 0.9, y: 40, transition: { duration: 0.2 } }}
+              whileHover={{ y: p.y - 6, rotate: p.rotate + 1 }}
+            >
+              <div className="bg-white p-2 rounded-md shadow-xl ring-1 ring-black/5">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  width={272}
+                  height={272}
+                  className="w-48 h-48 lg:w-56 lg:h-56 object-cover rounded-sm"
+                />
+                <p className="mt-2 text-center text-xs text-[#6B7280] font-medium">
+                  {img.caption}
+                </p>
+              </div>
+            </motion.div>
+          );
+        })}
+      </AnimatePresence>
+      {/* tiny hint */}
+      <div className="absolute -bottom-3 text-[11px] text-[#9CA3AF]">
+        Tap/hover to shuffle
+      </div>
+    </div>
+  );
+};
 
 const OurStory = () => {
+  const images: Polaroid[] = [
+    {
+      src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+      alt: "First meeting at coffee shop",
+      caption: "First meeting at coffee shop"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      alt: "First date at the park",
+      caption: "First date at the park"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+      alt: "Proposal at sunset",
+      caption: "Proposal at sunset"
+    }
+  ];
+
   const loveStoryCode = `def love_story():
     place = "coffee shop"
     moments = [
@@ -85,65 +199,7 @@ love_story()`;
               viewport={{ once: true }}
               className="lg:col-span-2 relative h-80 lg:h-96 flex items-center justify-center"
             >
-              {/* Photo 1 */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-                whileInView={{ opacity: 1, scale: 1, rotate: -5 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-                viewport={{ once: true }}
-                className="absolute polaroid cursor-pointer transition-all duration-300 z-20"
-              >
-                <Image 
-                  src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
-                  alt="First meeting at coffee shop" 
-                  width={192}
-                  height={192}
-                  className="w-40 h-40 lg:w-48 lg:h-48 object-cover rounded-sm"
-                />
-                <div className="mt-2 text-center">
-                  <p className="text-xs text-[#6B7280] font-medium">First meeting at coffee shop</p>
-                </div>
-              </motion.div>
-
-              {/* Photo 2 */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8, rotate: 8 }}
-                whileInView={{ opacity: 1, scale: 1, rotate: 8 }}
-                transition={{ duration: 0.8, delay: 1.0 }}
-                viewport={{ once: true }}
-                className="absolute polaroid cursor-pointer transition-all duration-300 z-10"
-              >
-                <Image 
-                  src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                  alt="First date at the park" 
-                  width={192}
-                  height={192}
-                  className="w-40 h-40 lg:w-48 lg:h-48 object-cover rounded-sm"
-                />
-                <div className="mt-2 text-center">
-                  <p className="text-xs text-[#6B7280] font-medium">First date at the park</p>
-                </div>
-              </motion.div>
-
-              {/* Photo 3 */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8, rotate: -3 }}
-                whileInView={{ opacity: 1, scale: 1, rotate: -3 }}
-                transition={{ duration: 0.8, delay: 1.2 }}
-                viewport={{ once: true }}
-                className="absolute polaroid cursor-pointer transition-all duration-300 z-0"
-              >
-                <Image 
-                  src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
-                  alt="Proposal at sunset" 
-                  width={192}
-                  height={192}
-                  className="w-40 h-40 lg:w-48 lg:h-48 object-cover rounded-sm"
-                />
-                <div className="mt-2 text-center">
-                  <p className="text-xs text-[#6B7280] font-medium">Proposal at sunset</p>
-                </div>
-              </motion.div>
+              <ShufflingPolaroids images={images} />
             </motion.div>
           </div>
         </motion.div>
