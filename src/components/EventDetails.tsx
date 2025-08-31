@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Clock as ClockIcon, Heart, Users, Phone, Mail, Globe, Camera, Utensils, Music } from 'lucide-react';
+import Image from 'next/image';
 
 const EventDetails = () => {
   const events = [
@@ -211,10 +212,11 @@ const EventDetails = () => {
               {/* Venue Image */}
               <div className="relative">
                 <div className="aspect-[4/3] w-full rounded-lg overflow-hidden shadow-lg">
-                  <img
+                  <Image
                     src="/venue.png"
                     alt="RARIN Bangkok Riverside Venue"
-                    className="w-full h-full object-cover"
+                    layout="fill"
+                    objectFit="cover"
                   />
                 </div>
                 <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">

@@ -1,7 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Heart, Camera, MapPin } from 'lucide-react';
 import { CodeBlock } from '@/components/ui/CodeBlock';
+import Image from 'next/image';
 
 const OurStory = () => {
   const loveStoryCode = `def love_story():
@@ -91,9 +93,11 @@ love_story()`;
                 viewport={{ once: true }}
                 className="absolute polaroid cursor-pointer transition-all duration-300 z-20"
               >
-                <img 
+                <Image 
                   src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
                   alt="First meeting at coffee shop" 
+                  width={192}
+                  height={192}
                   className="w-40 h-40 lg:w-48 lg:h-48 object-cover rounded-sm"
                 />
                 <div className="mt-2 text-center">
@@ -109,9 +113,11 @@ love_story()`;
                 viewport={{ once: true }}
                 className="absolute polaroid cursor-pointer transition-all duration-300 z-10"
               >
-                <img 
+                <Image 
                   src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
                   alt="First date at the park" 
+                  width={192}
+                  height={192}
                   className="w-40 h-40 lg:w-48 lg:h-48 object-cover rounded-sm"
                 />
                 <div className="mt-2 text-center">
@@ -127,9 +133,11 @@ love_story()`;
                 viewport={{ once: true }}
                 className="absolute polaroid cursor-pointer transition-all duration-300 z-0"
               >
-                <img 
+                <Image 
                   src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
                   alt="Proposal at sunset" 
+                  width={192}
+                  height={192}
                   className="w-40 h-40 lg:w-48 lg:h-48 object-cover rounded-sm"
                 />
                 <div className="mt-2 text-center">

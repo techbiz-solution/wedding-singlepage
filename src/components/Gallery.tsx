@@ -1,6 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Camera, Heart } from 'lucide-react';
+import Image from 'next/image';
 
 const Gallery = () => {
   const photos = [
@@ -76,9 +78,11 @@ const Gallery = () => {
               className="polaroid cursor-pointer group"
             >
               <div className="relative overflow-hidden rounded-sm">
-                <img 
+                <Image 
                   src={photo.src} 
                   alt={photo.alt} 
+                  width={300}
+                  height={200}
                   className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110" 
                   loading="lazy"
                 />
