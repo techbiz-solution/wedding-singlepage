@@ -160,8 +160,6 @@ const RSVP = () => {
                   <option value="">Please select your relationship</option>
                   <option value="bride">Bride&apos;s Family & Friends</option>
                   <option value="groom">Groom&apos;s Family & Friends</option>
-                  <option value="both">Mutual Friend/Family</option>
-                  <option value="friend">Friend of Both</option>
                 </select>
               </div>
 
@@ -198,47 +196,55 @@ const RSVP = () => {
           </div>
         </motion.div>
 
-        {/* Additional Info */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          <div className="bg-white/60 backdrop-blur-sm rounded-xl p-6 md:p-8 max-w-2xl mx-auto accent-shadow border border-[#E5E7EB]">
-            <div className="flex items-center justify-center mb-4">
-              <Users className="w-6 h-6 text-[#8BC34A] mr-2" />
-              <h3 className="font-serif text-xl md:text-2xl text-[#2C2C2C]">
-                RSVP Deadline
-              </h3>
+        {/* Thank You Message */}
+        {submitStatus === 'success' && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <div className="bg-white/60 backdrop-blur-sm rounded-xl p-8 md:p-10 max-w-3xl mx-auto accent-shadow border border-[#E5E7EB]">
+              <div className="flex items-center justify-center mb-6">
+                <Heart className="w-8 h-8 text-[#FF9EBB] mr-3" />
+                <h3 className="font-serif text-2xl md:text-3xl text-[#2C2C2C]">
+                  Thank You for Your RSVP
+                </h3>
+                <Heart className="w-8 h-8 text-[#FF9EBB] ml-3" />
+              </div>
+              
+              <div className="space-y-4 mb-6">
+                <p className="font-sans text-lg text-[#4B5563] leading-relaxed">
+                  Your presence at our wedding means the world to us. We can&apos;t wait to celebrate this special day with you and create beautiful memories together.
+                </p>
+                <p className="font-sans text-base text-[#6B7280]">
+                  We&apos;ll see you on <span className="font-semibold text-[#FF7B54]">December 05, 2025</span> at the beautiful RARIN Bangkok Riverside Venue.
+                </p>
+              </div>
+              
+              <div className="bg-gradient-to-r from-[#FF9EBB]/10 to-[#C29DF2]/10 p-6 rounded-lg border border-[#FF9EBB]/20">
+                <p className="font-serif text-lg text-[#2C2C2C] mb-2">
+                  ✨ What to Expect ✨
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-[#6B7280]">
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-[#FF9EBB] rounded-full mr-2"></div>
+                    <span>Beautiful riverside ceremony</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-[#8BC34A] rounded-full mr-2"></div>
+                    <span>Delicious Thai cuisine</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-[#C29DF2] rounded-full mr-2"></div>
+                    <span>Unforgettable celebrations</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <p className="font-sans text-[#4B5563] mb-4">
-              Please respond by <span className="font-semibold text-[#FF7B54]">November 15, 2025</span> so we can make the necessary arrangements.
-            </p>
-            <p className="font-sans text-sm text-[#6B7280]">
-              If you have any questions or need to make changes to your RSVP, please contact us directly.
-            </p>
-            
-            {/* Debug Section - Remove this in production */}
-            <div className="mt-6 p-4 bg-gray-100 rounded-lg text-left">
-              <h4 className="font-serif text-sm font-semibold text-gray-700 mb-2">Debug Info:</h4>
-              <p className="text-xs text-gray-600 mb-1">
-                Environment: {process.env.NODE_ENV}
-              </p>
-              <button
-                onClick={() => {
-                  console.log('Environment check:', {
-                    NODE_ENV: process.env.NODE_ENV
-                  });
-                }}
-                className="text-xs text-blue-600 hover:text-blue-800 underline"
-              >
-                Check Console for Details
-              </button>
-            </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        )}
       </div>
     </section>
   );

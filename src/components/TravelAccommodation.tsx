@@ -16,24 +16,24 @@ const TravelAccommodation = () => {
     {
       name: 'Ibis Bangkok Riverside',
       type: 'Hotel',
-      price: '฿1,200–1,800',
-      distance: '4km from venue',
+      price: '฿2,100–2,500',
+      distance: '4.7km from venue',
       amenities: ['Free WiFi', 'Fitness Center', 'On site dining', 'Pool'],
       color: 'from-[#8BC34A] to-[#4CBFAD]'
     },
     {
       name: 'Bangkok River Loka',
       type: 'Hotel',
-      price: '฿1,300–1,600',
-      distance: '1.2 km from venue',
+      price: '฿1,100–1,300',
+      distance: '3.7 km from venue',
       amenities: ['Free WiFi', 'Free Parking'],
       color: 'from-[#FFD93D] to-[#FF7B54]'
     },
     {
       name: 'The Sunreno Hotel Bangkok',
       type: 'Hotel',
-      price: '฿1,800–2,200',
-      distance: '1.8 km from venue',
+      price: '฿1,300–1,800',
+      distance: '4.2 km from venue',
       amenities: ['Free WiFi', 'Free Parking'],
       color: 'from-[#FF7B54] to-[#E63946]'
     }

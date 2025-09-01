@@ -110,7 +110,7 @@ const OurStory = () => {
       caption: "Wedding Ring"
     },
     {
-      src: "/our_story/cafe_1.jpg",
+      src: "/our_story/cafe_1.png",
       alt: "Cafe",
       caption: "Cafe"
     }
