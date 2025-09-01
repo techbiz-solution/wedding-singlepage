@@ -64,13 +64,30 @@ export const CodeBlock = ({
       
       for (const line of lines) {
         if (line.includes('print(')) {
-          // Extract the print statement content
-          const match = line.match(/print\(f?"([^"]*)"\)/);
-          if (match) {
-            outputs.push(match[1]);
+          // Handle f-string print statements
+          if (line.includes('f"') || line.includes("f'")) {
+            // Extract f-string content and evaluate variables
+            const fStringMatch = line.match(/print\(f["']([^"']*)["']\)/);
+            if (fStringMatch) {
+              let content = fStringMatch[1];
+              // Replace variables with their values
+              content = content.replace(/\{([^}]+)\}/g, (match, variable) => {
+                switch (variable.trim()) {
+                  case 'place':
+                    return 'Wedding Ceremony';
+                  case 'moments_str':
+                    return 'laughter, adventures, dreams, memories';
+                  case 'm':
+                    return 'laughter';
+                  default:
+                    return variable;
+                }
+              });
+              outputs.push(content);
+            }
           } else {
             // Handle simple print statements
-            const simpleMatch = line.match(/print\("([^"]*)"\)/);
+            const simpleMatch = line.match(/print\(["']([^"']*)["']\)/);
             if (simpleMatch) {
               outputs.push(simpleMatch[1]);
             }
@@ -126,14 +143,16 @@ export const CodeBlock = ({
               <button
                 onClick={runCode}
                 disabled={isRunning}
-                className="flex items-center space-x-1 text-xs bg-green-600 hover:bg-green-700 disabled:bg-green-800 text-white px-2 py-1 rounded transition-colors font-sans"
+                className="flex items-center space-x-2 text-xs bg-green-600 hover:bg-green-700 disabled:bg-green-800 text-white px-4 py-2 rounded-md transition-all duration-200 font-sans shadow-lg hover:shadow-xl transform hover:scale-105 disabled:transform-none disabled:shadow-lg"
+                title="Click to run the code and see the output!"
               >
-                <IconPlayerPlay size={12} />
-                <span>{isRunning ? 'Running...' : 'Run'}</span>
+                <IconPlayerPlay size={14} className="text-white" />
+                <span className="font-medium">{isRunning ? 'Running...' : 'Run Code'}</span>
               </button>
               <button
                 onClick={copyToClipboard}
-                className="flex items-center space-x-1 text-xs text-zinc-400 hover:text-zinc-200 transition-colors font-sans"
+                className="flex items-center space-x-1 text-xs text-zinc-400 hover:text-zinc-200 transition-colors font-sans px-3 py-2 rounded-md hover:bg-slate-800"
+                title="Copy code to clipboard"
               >
                 {copied ? <IconCheck size={14} /> : <IconCopy size={14} />}
               </button>
@@ -197,6 +216,20 @@ export const CodeBlock = ({
               </div>
             ))}
           </div>
+        </motion.div>
+      )}
+      
+      {/* User Guidance Hint */}
+      {!showOutput && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="mt-3 text-center"
+        >
+          <p className="text-xs text-zinc-500 font-sans">
+            💡 <span className="text-zinc-400">Click the green "Run Code" button above to see the output!</span>
+          </p>
         </motion.div>
       )}
     </div>
