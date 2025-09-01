@@ -277,31 +277,55 @@ const EventDetails = () => {
 
             {/* Location Image Card */}
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 accent-shadow border border-[#E5E7EB]">
-              <div className="text-center mb-4">
-                <h4 className="font-serif text-xl md:text-2xl text-[#2C2C2C] mb-2">Venue Preview</h4>
-                <p className="text-sm text-[#6B7280]">See the beautiful location</p>
+              <div className="text-center mb-6">
+                <p className="text-sm text-[#6B7280] font-medium">📍 RARIN – Bangkok Riverside Venue</p>
               </div>
-              <div className="w-full rounded-xl overflow-hidden cursor-pointer group" onClick={() => setIsImageModalOpen(true)}>
+              <div className="w-full rounded-xl overflow-hidden cursor-pointer group mb-6" onClick={() => setIsImageModalOpen(true)}>
                 <Image
                   src="/travel/location.png"
-                  alt="RARIN Bangkok Riverside Venue Location"
+                  alt="RARIN Bangkok Riverside Venue Layout Plan"
                   width={800}
                   height={600}
                   className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-xl flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-lg">
-                    <span className="text-sm font-medium text-[#2C2C2C]">Click to enlarge</span>
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg">
+                    <span className="text-sm font-medium text-[#2C2C2C]">Click to view full layout</span>
                   </div>
                 </div>
               </div>
-              <div className="mt-4 text-center">
-                <p className="font-sans text-sm text-[#4B5563] mb-2">
-                  📍 RARIN – Bangkok Riverside Venue
-                </p>
-                <p className="text-xs text-[#6B7280]">
-                  59 Rat Burana 11 Alley, Bang Pakok, Rat Burana, Bangkok 10140
-                </p>
+              
+              {/* Venue Information Grid */}
+              <div className="space-y-4">              
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Left Column */}
+                  <div className="bg-[#F8F9FA] p-4 rounded-lg border border-[#E5E7EB]">
+                    <h6 className="font-serif text-sm font-semibold text-[#2C2C2C] mb-2 text-center">Transportation</h6>
+                    <div className="space-y-2 text-xs text-[#6B7280]">
+                      <div className="flex justify-between">
+                        <span>Private Car</span>
+                        <span className="text-[#8BC34A] font-medium">✓</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Taxi/Grab</span>
+                        <span className="text-[#8BC34A] font-medium">✓</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Right Column */}
+                  <div className="bg-[#F8F9FA] p-4 rounded-lg border border-[#E5E7EB]">
+                    <h6 className="font-serif text-sm font-semibold text-[#2C2C2C] mb-2 text-center">Nearest BTS</h6>
+                    <div className="space-y-2 text-xs text-[#6B7280]">
+                      <div className="text-center">
+                        <span className="font-medium text-[#2C2C2C]">BTS Wong Wian Yai</span>
+                      </div>
+                      <div className="text-center text-[#8BC34A] font-medium">
+                        4KM (15 Mins Drive)
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
