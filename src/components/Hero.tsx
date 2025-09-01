@@ -5,6 +5,7 @@ import { ChevronDown } from 'lucide-react';
 import { Spotlight } from '@/components/ui/Spotlight';
 import { Typewriter } from '@/components/ui/Typewriter';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -74,14 +75,29 @@ const Hero = () => {
         </div>
         
         {/* Couple Names */}
-        <h1 className="couple-names text-6xl md:text-8xl lg:text-9xl text-white text-center leading-none mb-6 text-shadow">
+        <motion.h1 
+          className="couple-names text-6xl md:text-8xl lg:text-9xl text-white text-center leading-none mb-6 text-shadow"
+          animate={{
+            scale: [1, 1.02, 1],
+            textShadow: [
+              "0 0 20px rgba(255, 158, 187, 0.3)",
+              "0 0 30px rgba(255, 158, 187, 0.6)",
+              "0 0 20px rgba(255, 158, 187, 0.3)"
+            ]
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
           <Typewriter 
             text="Pumpuiz & Pete" 
             speed={150} 
             delay={500}
             className="text-white"
           />
-        </h1>
+        </motion.h1>
         
         {/* Date */}
         <p className="font-sans text-xl md:text-2xl text-white/90 mb-8 text-shadow">

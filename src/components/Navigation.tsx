@@ -54,7 +54,7 @@ const Navigation = () => {
               />
             )}
             <span 
-              className={`font-serif text-2xl transition-colors duration-300 cursor-pointer ${
+              className={`couple-names text-2xl transition-colors duration-300 cursor-pointer ${
                 scrolled ? 'text-[#2C2C2C]' : 'text-white'
               }`}
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
