@@ -35,7 +35,7 @@ const Hero = () => {
   }, []);
 
   const scrollToNext = () => {
-    const nextSection = document.querySelector('#story');
+    const nextSection = document.querySelector('#rsvp');
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: 'smooth' });
     }
@@ -131,12 +131,24 @@ const Hero = () => {
         </div>
 
         {/* CTA Button */}
-        <button 
-          onClick={scrollToNext}
-          className="bg-gradient-to-r from-[#FF9EBB] to-[#C29DF2] hover:from-[#FF8BA8] hover:to-[#B08DE8] text-white px-10 py-4 rounded-full font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-        >
-          Our Story
-        </button>
+        <div className="flex justify-center">
+          <div className="relative group">
+            {/* Animated Border */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#FF9EBB] via-[#8BC34A] to-[#C29DF2] rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-spin-slow"></div>
+            {/* Button */}
+            <button 
+              onClick={scrollToNext}
+              className="relative bg-gradient-to-r from-[#FF9EBB] to-[#C29DF2] hover:from-[#FF8BA8] hover:to-[#B08DE8] text-white px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-base w-auto"
+            >
+              RSVP
+            </button>
+          </div>
+        </div>
+
+        {/* Gradient Line below button */}
+        <div className="w-full max-w-2xl mx-auto mt-8">
+          <div className="w-full h-1 bg-gradient-to-r from-[#FF9EBB] via-[#8BC34A] to-[#FF9EBB]"></div>
+        </div>
       </div>
 
       {/* Scroll Indicator */}
@@ -144,6 +156,7 @@ const Hero = () => {
         <button 
           onClick={scrollToNext}
           className="text-white hover:text-[#FFD93D] transition-colors"
+          aria-label="Scroll to RSVP"
         >
           <ChevronDown size={32} />
         </button>

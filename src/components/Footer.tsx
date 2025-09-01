@@ -103,9 +103,7 @@ const Footer = () => {
         </motion.div>
       </div>
 
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden">
-        <div className="w-full h-1 bg-gradient-to-r from-[#FF9EBB] via-[#8BC34A] to-[#FF9EBB]"></div>
-      </div>
+    
     </footer>
   );
 };

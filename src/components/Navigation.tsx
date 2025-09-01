@@ -49,12 +49,16 @@ const Navigation = () => {
                 alt="Wedding Logo"
                 width={40}
                 height={40}
-                className="w-10 h-10 transition-all duration-300"
+                className="w-10 h-10 transition-all duration-300 cursor-pointer"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               />
             )}
-            <span className={`font-serif text-2xl transition-colors duration-300 ${
-              scrolled ? 'text-[#2C2C2C]' : 'text-white'
-            }`}>
+            <span 
+              className={`font-serif text-2xl transition-colors duration-300 cursor-pointer ${
+                scrolled ? 'text-[#2C2C2C]' : 'text-white'
+              }`}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            >
               P & P
             </span>
           </div>
@@ -122,9 +126,19 @@ const Navigation = () => {
                     alt="Wedding Logo"
                     width={32}
                     height={32}
-                    className="w-8 h-8"
+                    className="w-8 h-8 cursor-pointer"
+                    onClick={() => {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                      setIsOpen(false);
+                    }}
                   />
-                  <span className="font-serif text-xl text-gray-900">
+                  <span 
+                    className="font-serif text-xl text-gray-900 cursor-pointer"
+                    onClick={() => {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                      setIsOpen(false);
+                    }}
+                  >
                     P & P
                   </span>
                 </div>

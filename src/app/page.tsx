@@ -18,6 +18,6 @@ export default function Home() {
       <Gallery />
       <RSVP />
       <Footer />
-    </main>
+      </main>
   );
 }
