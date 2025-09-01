@@ -93,10 +93,6 @@ const ShufflingPolaroids = ({
           );
         })}
       </AnimatePresence>
-      {/* tiny hint */}
-      <div className="absolute -bottom-3 text-[11px] text-[#9CA3AF]">
-        Tap/hover to shuffle
-      </div>
     </div>
   );
 };
@@ -104,19 +100,19 @@ const ShufflingPolaroids = ({
 const OurStory = () => {
   const images: Polaroid[] = [
     {
-      src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-      alt: "First meeting at coffee shop",
-      caption: "First meeting at coffee shop"
+      src: "/our_story/flower.jpg",
+      alt: "Wedding Flowers",
+      caption: "Wedding Flowers"
     },
     {
-      src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-      alt: "First date at the park",
-      caption: "First date at the park"
+      src: "/our_story/cartier.jpg",
+      alt: "Wedding Ring",
+      caption: "Wedding Ring"
     },
     {
-      src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-      alt: "Proposal at sunset",
-      caption: "Proposal at sunset"
+      src: "/our_story/cafe_1.jpg",
+      alt: "Cafe",
+      caption: "Cafe"
     }
   ];
 
