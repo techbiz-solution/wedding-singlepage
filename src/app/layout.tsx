@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Meteors } from "@/components/ui/Meteors";
 
 export const metadata: Metadata = {
   title: "Pumpuiz & Pete's Wedding",
@@ -21,7 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        {children}
+        <div className="relative">
+          <Meteors number={15} />
+          {children}
+        </div>
       </body>
     </html>
   );
