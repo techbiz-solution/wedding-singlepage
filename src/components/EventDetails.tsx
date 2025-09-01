@@ -1,10 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Clock as ClockIcon, Heart, Users, Phone, Mail, Globe, Camera, Utensils, Music } from 'lucide-react';
+import { Calendar, MapPin, Clock as ClockIcon, Heart, Users, Phone, Mail, Globe, Camera, Utensils, Music, X } from 'lucide-react';
 import Image from 'next/image';
+import { useState } from 'react';
 
 const EventDetails = () => {
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+
   const events = [
     {
       time: '3:00 PM',
@@ -233,43 +236,121 @@ const EventDetails = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
-          className="w-full max-w-4xl mx-auto mb-16"
+          className="w-full max-w-6xl mx-auto mb-16"
         >
           <div className="text-center mb-8">
             <h3 className="font-serif text-2xl md:text-3xl text-[#2C2C2C] mb-4 font-light">Venue Location</h3>
             <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#8BC34A] to-transparent mx-auto mb-6"></div>
           </div>
           
-          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 accent-shadow border border-[#E5E7EB]">
-            <div className="aspect-[16/9] w-full rounded-xl overflow-hidden">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.4490341855144!2d100.49002929999999!3d13.6912322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e299bf6a84c907%3A0x560932bf43b5b621!2sRARIN-Bangkok%20Riverside%20Venue!5e0!3m2!1sen!2sth!4v1755905094120!5m2!1sen!2sth" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
-                title="RARIN-Bangkok Riverside Venue Location"
-                className="w-full h-full"
-              ></iframe>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+            {/* Google Maps Card */}
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 accent-shadow border border-[#E5E7EB]">
+              <div className="text-center mb-4">
+                <h4 className="font-serif text-xl md:text-2xl text-[#2C2C2C] mb-2">Interactive Map</h4>
+                <p className="text-sm text-[#6B7280]">View the exact location</p>
+              </div>
+              <div className="aspect-[4/3] w-full rounded-xl overflow-hidden">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.4490341855144!2d100.49002929999999!3d13.6912322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e299bf6a84c907%3A0x560932bf43b5b621!2sRARIN-Bangkok%20Riverside%20Venue!5e0!3m2!1sen!2sth!4v1755905094120!5m2!1sen!2sth" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="RARIN-Bangkok Riverside Venue Location"
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+              <div className="mt-4 text-center">
+                <a 
+                  href="https://maps.google.com/?q=RARIN-Bangkok+Riverside+Venue"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-gradient-to-r from-[#8BC34A] to-[#4CBFAD] text-white font-sans text-xs tracking-[0.2em] uppercase px-4 py-2 hover:from-[#7CB342] hover:to-[#3DB8A0] transition-all duration-300 transform hover:scale-105 accent-shadow-hover rounded-lg"
+                >
+                  Open in Google Maps
+                </a>
+              </div>
             </div>
-            
-            <div className="mt-6 text-center">
-              <p className="font-sans text-sm text-[#4B5563] mb-3">
-                📍 RARIN – Bangkok Riverside Venue
-              </p>
-              <a 
-                href="https://maps.google.com/?q=RARIN-Bangkok+Riverside+Venue"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-gradient-to-r from-[#FF9EBB] to-[#C29DF2] text-white font-sans text-xs tracking-[0.2em] uppercase px-6 py-2 hover:from-[#FF8BA8] hover:to-[#B08DE8] transition-all duration-300 transform hover:scale-105 accent-shadow-hover rounded-lg"
-              >
-                Open in Google Maps
-              </a>
+
+            {/* Location Image Card */}
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 accent-shadow border border-[#E5E7EB]">
+              <div className="text-center mb-4">
+                <h4 className="font-serif text-xl md:text-2xl text-[#2C2C2C] mb-2">Venue Preview</h4>
+                <p className="text-sm text-[#6B7280]">See the beautiful location</p>
+              </div>
+              <div className="w-full rounded-xl overflow-hidden cursor-pointer group" onClick={() => setIsImageModalOpen(true)}>
+                <Image
+                  src="/travel/location.png"
+                  alt="RARIN Bangkok Riverside Venue Location"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-xl flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-lg">
+                    <span className="text-sm font-medium text-[#2C2C2C]">Click to enlarge</span>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-4 text-center">
+                <p className="font-sans text-sm text-[#4B5563] mb-2">
+                  📍 RARIN – Bangkok Riverside Venue
+                </p>
+                <p className="text-xs text-[#6B7280]">
+                  59 Rat Burana 11 Alley, Bang Pakok, Rat Burana, Bangkok 10140
+                </p>
+              </div>
             </div>
           </div>
         </motion.div>
+
+        {/* Image Modal */}
+        {isImageModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={() => setIsImageModalOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative max-w-[90vw] max-h-[90vh] bg-white rounded-2xl overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setIsImageModalOpen(false)}
+                className="absolute top-4 right-4 z-10 bg-white/90 backdrop-blur-sm hover:bg-white p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+              >
+                <X className="w-5 h-5 text-[#2C2C2C]" />
+              </button>
+              
+              {/* Image */}
+              <div className="relative">
+                <Image
+                  src="/travel/location.png"
+                  alt="RARIN Bangkok Riverside Venue Location - Full Size"
+                  width={1200}
+                  height={900}
+                  className="w-full h-auto max-h-[90vh] object-contain"
+                />
+              </div>
+              
+              {/* Caption */}
+              <div className="p-6 text-center bg-white">
+                <h3 className="font-serif text-xl text-[#2C2C2C] mb-2">RARIN – Bangkok Riverside Venue</h3>
+                <p className="text-sm text-[#6B7280]">59 Rat Burana 11 Alley, Bang Pakok, Rat Burana, Bangkok 10140</p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
       </div>
     </section>
   );
