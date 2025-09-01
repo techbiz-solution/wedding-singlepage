@@ -60,7 +60,7 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <button
                 key={item.name}
@@ -77,7 +77,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden p-2 transition-colors ${
+            className={`lg:hidden p-2 transition-colors ${
               scrolled 
                 ? 'text-[#4B5563] hover:text-[#FF9EBB]' 
                 : 'text-white hover:text-[#FF9EBB]'
@@ -94,7 +94,7 @@ const Navigation = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[9999] md:hidden"
+            className="fixed inset-0 z-[9999] lg:hidden"
           >
             {/* Backdrop */}
             <motion.div

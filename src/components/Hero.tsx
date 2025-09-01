@@ -42,7 +42,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -61,15 +61,15 @@ const Hero = () => {
       />
 
       {/* Content */}
-      <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto min-h-[60vh] flex flex-col justify-center">
         {/* Logo */}
-        <div className="mb-8">
+        <div className="mb-6 md:mb-8">
           <Image
             src="/pp_logo_white.png"
             alt="Wedding Logo"
             width={200}
             height={200}
-            className="w-40 h-40 md:w-44 md:h-44 lg:w-48 lg:h-48 mx-auto transition-all duration-300"
+            className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 mx-auto transition-all duration-300"
           />
         </div>
         
