@@ -214,10 +214,10 @@ love_story()`;
               It all began on a sunny afternoon in suburban Bangkok, where we first crossed paths at a wedding ceremony.
             </p>
             <p className="font-sans text-lg text-[#4B5563] leading-relaxed">
-            Though the timing wasn’t perfect, what began as a simple gesture soon grew into hours of conversation—about dreams, aspirations, and the little things that make life beautiful. Day after day, we learned that sometimes the most extraordinary love stories begin with the most ordinary moments.
+            Though the timing wasn&apos;t perfect, what began as a simple gesture soon grew into hours of conversation&mdash;about dreams, aspirations, and the little things that make life beautiful. Day after day, we learned that sometimes the most extraordinary love stories begin with the most ordinary moments.
             </p>
             <p className="font-sans text-lg text-[#4B5563] leading-relaxed italic">
-              And we found each other, no matter how long I've waited for you. Do you feel that life is worthwhile when there's someone by your side? Born to find that special someone - the one heaven created just for me. We know the world is vast and wide, but it wasn't too difficult for me to find you.
+              And we found each other, no matter how long I&apos;ve waited for you. Do you feel that life is worthwhile when there&apos;s someone by your side? Born to find that special someone - the one heaven created just for me. We know the world is vast and wide, but it wasn&apos;t too difficult for me to find you.
             </p>
           </div>
         </motion.div>
