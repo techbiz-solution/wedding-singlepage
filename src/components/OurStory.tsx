@@ -117,21 +117,21 @@ const OurStory = () => {
   ];
 
   const loveStoryCode = `def love_story():
-    place = "Wedding Ceremony"
+    place = &quot;Wedding Ceremony&quot;
     moments = [
-        "laughter",
-        "adventures", 
-        "dreams",
-        "memories"
+        &quot;laughter&quot;,
+        &quot;adventures&quot;, 
+        &quot;dreams&quot;,
+        &quot;memories&quot;
     ]
     # Join moments into a single string separated by commas
-    moments_str = ', '.join(moments)
+    moments_str = &apos;, &apos;.join(moments)
     
     # Print the output in the desired format
-    print(f"We met at a {place} ☕")
-    print(f"Our days were filled with {moments_str} ❤️")
-    print("Then one day, we decided to embark on forever together 💍")
-    print("And now, a new chapter begins, with love as our guide 🎉")
+    print(f&quot;We met at a {place} ☕&quot;)
+    print(f&quot;Our days were filled with {moments_str} ❤️&quot;)
+    print(&quot;Then one day, we decided to embark on forever together 💍&quot;)
+    print(&quot;And now, a new chapter begins, with love as our guide 🎉&quot;)
 
 love_story()`;
 
