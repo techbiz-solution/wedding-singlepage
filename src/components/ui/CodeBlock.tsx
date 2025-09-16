@@ -228,7 +228,7 @@ export const CodeBlock = ({
           className="mt-3 text-center"
         >
           <p className="text-xs text-zinc-500 font-sans">
-            💡 <span className="text-zinc-400">Click the green "Run Code" button above to see the output!</span>
+            💡 <span className="text-zinc-400">Click the green &quot;Run Code&quot; button above to see the output!</span>
           </p>
         </motion.div>
       )}
