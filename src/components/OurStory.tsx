@@ -211,13 +211,13 @@ love_story()`;
         >
           <div className="space-y-6">
             <p className="font-sans text-lg text-[#4B5563] leading-relaxed">
-              It all began on a rainy afternoon in downtown Bangkok. Pumpuiz was reading her favorite book at the corner coffee shop when Pete walked in, completely drenched from the unexpected downpour.
+              It all began on a sunny afternoon in suburban Bangkok, where we first crossed paths at a wedding ceremony.
             </p>
             <p className="font-sans text-lg text-[#4B5563] leading-relaxed">
-              What started as a simple gesture of offering a napkin turned into hours of conversation about dreams, aspirations, and the little things that make life beautiful. That day, we discovered that sometimes the best love stories begin with the most ordinary moments.
+            Though the timing wasn’t perfect, what began as a simple gesture soon grew into hours of conversation—about dreams, aspirations, and the little things that make life beautiful. Day after day, we learned that sometimes the most extraordinary love stories begin with the most ordinary moments.
             </p>
-            <p className="font-sans text-lg text-[#4B5563] leading-relaxed">
-              Three years later, on a mountaintop at sunset, Pete got down on one knee and asked the question that would change our lives forever. Now, we&apos;re excited to celebrate our love with all of you on our special day.
+            <p className="font-sans text-lg text-[#4B5563] leading-relaxed italic">
+              And we found each other, no matter how long I've waited for you. Do you feel that life is worthwhile when there's someone by your side? Born to find that special someone - the one heaven created just for me. We know the world is vast and wide, but it wasn't too difficult for me to find you.
             </p>
           </div>
         </motion.div>

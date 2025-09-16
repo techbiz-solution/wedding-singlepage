@@ -10,39 +10,36 @@ const EventDetails = () => {
 
   const events = [
     {
-      time: '3:00 PM',
-      title: 'Ceremony',
-      description: 'Exchange of vows in the beautiful garden',
-      icon: Heart,
-      color: 'bg-gradient-to-r from-[#FF9EBB] to-[#C29DF2]'
-    },
-    {
-      time: '4:00 PM',
-      title: 'Cocktail Hour',
-      description: 'Light refreshments and mingling',
-      icon: Utensils,
-      color: 'bg-gradient-to-r from-[#8BC34A] to-[#4CBFAD]'
-    },
-    {
-      time: '5:00 PM',
-      title: 'Photo Session',
-      description: 'Family and couple photos',
+      time: '5:30 PM',
+      title: 'Capture the Moment',
+      description: 'Professional photography session with family and friends',
       icon: Camera,
-      color: 'bg-gradient-to-r from-[#FFD93D] to-[#FF7B54]'
+      color: 'bg-gradient-to-r from-[#FFD93D] to-[#FF7B54]',
+      emoji: '📸'
     },
     {
       time: '6:00 PM',
       title: 'Dinner',
-      description: 'Farm-to-table dinner service',
+      description: 'Elegant dining experience with loved ones',
       icon: Utensils,
-      color: 'bg-gradient-to-r from-[#C29DF2] to-[#E63946]'
+      color: 'bg-gradient-to-r from-[#C29DF2] to-[#E63946]',
+      emoji: '🍽️'
     },
     {
-      time: '8:00 PM',
-      title: 'Reception & Dancing',
-      description: 'Celebration and dancing under the stars',
+      time: '7:00 PM',
+      title: 'Plant Watering Ceremony',
+      description: 'A symbolic ritual of growth and nurturing love',
+      icon: Heart,
+      color: 'bg-gradient-to-r from-[#8BC34A] to-[#4CBFAD]',
+      emoji: '🌱'
+    },
+    {
+      time: '8:00 PM - 12:00 AM',
+      title: 'Enjoy the Party',
+      description: 'Dancing, celebration, and making memories together',
       icon: Music,
-      color: 'bg-gradient-to-r from-[#4CBFAD] to-[#FFD93D]'
+      color: 'bg-gradient-to-r from-[#FF9EBB] to-[#C29DF2]',
+      emoji: '🎉'
     }
   ];
 
@@ -69,7 +66,10 @@ const EventDetails = () => {
         <div className="mb-16">
           <div className="relative">
             {/* Desktop Timeline Line */}
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-[#FFD93D] to-[#C29DF2] h-full rounded-full"></div>
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-[#FFD93D] to-[#C29DF2] h-full rounded-full">
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#FFD93D] rounded-full animate-pulse"></div>
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#C29DF2] rounded-full animate-pulse"></div>
+            </div>
             
             {/* Mobile Timeline Line */}
             <div className="md:hidden absolute left-4 w-[3px] bg-gradient-to-b from-[#FFD93D] to-[#C29DF2] h-full rounded-full"></div>
@@ -92,18 +92,19 @@ const EventDetails = () => {
                     {/* Mobile Layout */}
                     <div className="md:hidden flex items-start">
                       {/* Timeline Dot */}
-                      <div className="absolute left-2 w-4 h-4 bg-gradient-to-r from-[#8BC34A] to-[#4CBFAD] rounded-full border-2 border-white shadow-lg z-10 transform -translate-x-1/2"></div>
+                      <div className="absolute left-2 w-4 h-4 bg-gradient-to-r from-[#8BC34A] to-[#4CBFAD] rounded-full border-2 border-white shadow-lg z-10 transform -translate-x-1/2 animate-pulse"></div>
                       
                       {/* Event Content */}
                       <div className="ml-8 w-full">
-                        <div className="bg-white p-4 md:p-6 rounded-lg accent-shadow border-l-4 border-l-[#8BC34A]">
+                        <div className="bg-white p-4 md:p-6 rounded-lg accent-shadow border-l-4 border-l-[#8BC34A] transform hover:scale-[1.02] transition-all duration-300">
                           <div className="flex items-center mb-3">
-                            <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full ${event.color} flex items-center justify-center mr-3`}>
+                            <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full ${event.color} flex items-center justify-center mr-3 group-hover:animate-spin-slow`}>
                               <IconComponent className="w-4 h-4 md:w-5 md:h-5 text-white" />
                             </div>
                             <div>
-                              <div className="font-serif text-base md:text-lg font-semibold text-[#2C2C2C]">
+                              <div className="font-serif text-base md:text-lg font-semibold text-[#2C2C2C] flex items-center gap-2">
                                 {event.title}
+                                <span className="text-xl">{event.emoji}</span>
                               </div>
                               <div className="text-sm text-[#FF7B54] font-medium">
                                 {event.time}
@@ -122,15 +123,16 @@ const EventDetails = () => {
                       {/* Left Side Event */}
                       {isLeft && (
                         <div className="w-5/12 text-right pr-8">
-                          <div className="bg-white p-6 rounded-lg accent-shadow border-l-4 border-l-[#FF9EBB]">
+                          <div className="bg-white p-6 rounded-lg accent-shadow border-l-4 border-l-[#FF9EBB] transform hover:scale-[1.02] transition-all duration-300">
                             <div className="flex items-center mb-3 justify-end">
                               <div className="flex items-center">
-                                <div className={`w-10 h-10 rounded-full ${event.color} flex items-center justify-center mr-3`}>
+                                <div className={`w-10 h-10 rounded-full ${event.color} flex items-center justify-center mr-3 group-hover:animate-spin-slow`}>
                                   <IconComponent className="w-5 h-5 text-white" />
                                 </div>
                                 <div className="text-right">
-                                  <div className="font-serif text-lg font-semibold text-[#2C2C2C]">
+                                  <div className="font-serif text-lg font-semibold text-[#2C2C2C] flex items-center gap-2 justify-end">
                                     {event.title}
+                                    <span className="text-xl">{event.emoji}</span>
                                   </div>
                                   <div className="text-sm text-[#FF7B54] font-medium">
                                     {event.time}
@@ -145,20 +147,35 @@ const EventDetails = () => {
                         </div>
                       )}
 
-                      {/* Timeline Dot */}
-                      <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-[#8BC34A] to-[#4CBFAD] rounded-full border-4 border-white shadow-lg z-10"></div>
+                      {/* Timeline Dot with Pulse Animation */}
+                      <motion.div
+                        className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-[#8BC34A] to-[#4CBFAD] rounded-full border-4 border-white shadow-lg z-10"
+                        whileHover={{ scale: 1.2 }}
+                        animate={{
+                          boxShadow: [
+                            "0 0 0 0 rgba(139, 195, 74, 0.4)",
+                            "0 0 0 10px rgba(139, 195, 74, 0)",
+                          ],
+                        }}
+                        transition={{
+                          duration: 1.5,
+                          repeat: Infinity,
+                          repeatType: "loop",
+                        }}
+                      />
 
                       {/* Right Side Event */}
                       {!isLeft && (
                         <div className="w-5/12 text-left pl-8 ml-auto">
-                          <div className="bg-white p-6 rounded-lg accent-shadow border-l-4 border-l-[#8BC34A]">
+                          <div className="bg-white p-6 rounded-lg accent-shadow border-l-4 border-l-[#8BC34A] transform hover:scale-[1.02] transition-all duration-300">
                             <div className="flex items-center mb-3">
-                              <div className={`w-10 h-10 rounded-full ${event.color} flex items-center justify-center mr-3`}>
+                              <div className={`w-10 h-10 rounded-full ${event.color} flex items-center justify-center mr-3 group-hover:animate-spin-slow`}>
                                 <IconComponent className="w-5 h-5 text-white" />
                               </div>
                               <div>
-                                <div className="font-serif text-lg font-semibold text-[#2C2C2C]">
+                                <div className="font-serif text-lg font-semibold text-[#2C2C2C] flex items-center gap-2">
                                   {event.title}
+                                  <span className="text-xl">{event.emoji}</span>
                                 </div>
                                 <div className="text-sm text-[#FF7B54] font-medium">
                                   {event.time}

@@ -35,11 +35,10 @@ const Footer = () => {
             >
               <h4 className="font-serif text-2xl md:text-3xl font-semibold text-[#FF9EBB] mb-8">Share the Love</h4>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-                <p className="font-serif text-lg text-[#D1D5DB] mb-4">Wedding Hashtag</p>
+                <p className="font-serif text-lg text-[#D1D5DB] mb-4">Share your moments with us using our wedding hashtags!</p>
                 <div className="bg-gradient-to-r from-[#FF9EBB] to-[#C29DF2] bg-clip-text">
-                  <p className="text-2xl md:text-2xl font-bold text-transparent">#PumpuizPeteDay</p>
+                  <p className="text-2xl md:text-2xl font-bold text-transparent">#PumpuizPeteDay | #PPWedding</p>
                 </div>
-                <p className="text-sm text-[#9CA3AF] mt-3">Use this hashtag to share your memories!</p>
               </div>
             </motion.div>
           </div>
