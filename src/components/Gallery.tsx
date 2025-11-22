@@ -7,44 +7,44 @@ import Image from 'next/image';
 const Gallery = () => {
   const photos = [
     {
-      src: "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      alt: "Engagement photo in the park",
-      caption: "Our first engagement shoot"
+      src: "/gallery/pre2.jpg",
+      alt: "Pre-wedding photo 2",
+      caption: "Our beautiful moments"
     },
     {
-      src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-      alt: "Coffee shop memories",
-      caption: "Where it all began"
+      src: "/gallery/pre3.jpg",
+      alt: "Pre-wedding photo 3",
+      caption: "Captured memories"
     },
     {
-      src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-      alt: "Sunset proposal",
-      caption: "The perfect moment"
+      src: "/gallery/pre4.jpg",
+      alt: "Pre-wedding photo 4",
+      caption: "Love in every frame"
     },
     {
-      src: "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      alt: "Vineyard adventures",
-      caption: "Exploring wine country together"
+      src: "/gallery/pre7.jpg",
+      alt: "Pre-wedding photo 7",
+      caption: "Special moments"
     },
     {
-      src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-      alt: "Hiking adventures",
-      caption: "Our favorite hiking trail"
+      src: "/gallery/pre8.jpg",
+      alt: "Pre-wedding photo 8",
+      caption: "Together forever"
     },
     {
-      src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-      alt: "Dinner dates",
-      caption: "Celebrating special moments"
+      src: "/gallery/pre9.jpg",
+      alt: "Pre-wedding photo 9",
+      caption: "Our journey"
     },
     {
-      src: "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      alt: "Beach walks",
-      caption: "Sunset walks by the ocean"
+      src: "/gallery/pre10.jpg",
+      alt: "Pre-wedding photo 10",
+      caption: "Perfect memories"
     },
     {
-      src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-      alt: "City adventures",
-      caption: "Exploring San Francisco together"
+      src: "/gallery/pre11.jpg",
+      alt: "Pre-wedding photo 11",
+      caption: "Love story"
     }
   ];
 
@@ -83,7 +83,7 @@ const Gallery = () => {
                   alt={photo.alt} 
                   width={300}
                   height={200}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110" 
+                  className="w-full h-48 object-contain transition-transform duration-300 group-hover:scale-110" 
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
