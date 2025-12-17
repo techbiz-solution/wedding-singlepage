@@ -110,9 +110,25 @@ const Hero = () => {
         </p>
 
         {/* Marriage Duration Text */}
-        <p className="font-sans text-lg md:text-xl text-white/90 mb-6 text-shadow">
-          We have been married for
-        </p>
+        <motion.p 
+          className="font-sans text-xl md:text-2xl lg:text-3xl mb-6 font-medium"
+          animate={{
+            textShadow: [
+              "0 0 10px rgba(255, 158, 187, 0.5), 0 0 20px rgba(255, 158, 187, 0.3)",
+              "0 0 20px rgba(255, 217, 61, 0.6), 0 0 30px rgba(255, 158, 187, 0.4), 0 0 40px rgba(194, 157, 242, 0.3)",
+              "0 0 10px rgba(255, 158, 187, 0.5), 0 0 20px rgba(255, 158, 187, 0.3)"
+            ]
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <span className="bg-gradient-to-r from-[#FFD93D] via-[#FF9EBB] to-[#C29DF2] bg-clip-text text-transparent">
+            We have been married for
+          </span>
+        </motion.p>
 
         {/* Countdown Timer */}
         <div className="grid grid-cols-4 gap-4 md:gap-8 mb-12 max-w-md mx-auto">
