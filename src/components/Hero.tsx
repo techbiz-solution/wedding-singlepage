@@ -101,12 +101,7 @@ const Hero = () => {
         
         {/* Date */}
         <p className="font-sans text-xl md:text-2xl text-white/90 mb-8 text-shadow">
-          December 05, 2025
-        </p>
-        
-        {/* Location */}
-        <p className="font-sans text-lg md:text-xl mb-10 text-shadow opacity-90">
-          RARIN – Bangkok Riverside Venue
+          December 05, 2025 @ RARIN – Bangkok Riverside Venue
         </p>
 
         {/* Marriage Duration Text */}
