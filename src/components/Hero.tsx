@@ -8,29 +8,26 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  });
+  const [daysMarried, setDaysMarried] = useState(0);
 
   useEffect(() => {
     const weddingDate = new Date('2025-12-05T16:00:00').getTime();
     
-    const timer = setInterval(() => {
+    const calculateDaysMarried = () => {
       const now = new Date().getTime();
-      const distance = weddingDate - now;
+      const distance = now - weddingDate;
       
       if (distance > 0) {
-        setTimeLeft({
-          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((distance % (1000 * 60)) / 1000)
-        });
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        setDaysMarried(days);
       }
-    }, 1000);
+    };
+    
+    // Calculate immediately
+    calculateDaysMarried();
+    
+    // Update every hour to keep it relatively accurate
+    const timer = setInterval(calculateDaysMarried, 1000 * 60 * 60);
 
     return () => clearInterval(timer);
   }, []);
@@ -109,25 +106,21 @@ const Hero = () => {
           RARIN – Bangkok Riverside Venue
         </p>
 
-        {/* Countdown Timer */}
-        <div className="grid grid-cols-4 gap-4 md:gap-8 mb-12 max-w-md mx-auto">
-          {[
-            { label: 'Days', value: timeLeft.days, color: 'from-[#FFD93D] to-[#FF9EBB]' },
-            { label: 'Hours', value: timeLeft.hours, color: 'from-[#8BC34A] to-[#4CBFAD]' },
-            { label: 'Minutes', value: timeLeft.minutes, color: 'from-[#FF7B54] to-[#C29DF2]' },
-            { label: 'Seconds', value: timeLeft.seconds, color: 'from-[#E63946] to-[#FFD93D]' }
-          ].map((item, index) => (
-            <div key={index} className="text-center">
-              <div className="bg-white/20 backdrop-blur-custom rounded-lg p-3 md:p-4 border border-white/30">
-                <div className={`font-serif text-2xl md:text-3xl font-bold bg-gradient-to-r ${item.color} bg-clip-text text-transparent`}>
-                  {item.value.toString().padStart(2, '0')}
-                </div>
-                <div className="text-sm md:text-base opacity-80">
-                  {item.label}
-                </div>
+        {/* Days Married */}
+        <div className="mb-12 max-w-md mx-auto">
+          <div className="text-center">
+            <div className="bg-white/20 backdrop-blur-custom rounded-lg p-6 md:p-8 border border-white/30">
+              <p className="font-sans text-lg md:text-xl text-white/90 mb-4 text-shadow">
+                We have been married for
+              </p>
+              <div className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#FFD93D] to-[#FF9EBB] bg-clip-text text-transparent">
+                {daysMarried}
+              </div>
+              <div className="text-sm md:text-base opacity-80 mt-2">
+                {daysMarried === 1 ? 'day' : 'days'}
               </div>
             </div>
-          ))}
+          </div>
         </div>
 
         {/* Color Theme Display */}
