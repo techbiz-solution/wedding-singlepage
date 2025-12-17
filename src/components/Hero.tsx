@@ -109,6 +109,11 @@ const Hero = () => {
           RARIN – Bangkok Riverside Venue
         </p>
 
+        {/* Marriage Duration Text */}
+        <p className="font-sans text-lg md:text-xl text-white/90 mb-6 text-shadow">
+          We have been married for
+        </p>
+
         {/* Countdown Timer */}
         <div className="grid grid-cols-4 gap-4 md:gap-8 mb-12 max-w-md mx-auto">
           {[
